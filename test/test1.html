@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" v-on:keyup.enter.space="myAlert" />
+      <p>{{message}}</p>
+      <p>{{counter}}</p>
+      <p>{{lessThanThree}}</p>
+      <button v-on:click="counter += 1">+1</button>
+
+      <h1 v-bind:class="ClassObject">hello</h1>
+      <button v-on:click="Active = !Active">切り替え</button>
+      <h1 v-bind:class="[{red: Active},bg]">hello</h1>
+      <h1 :style="[styleObject,baseStyle]">css-bind</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="test1.js"></script>
+  </body>
+</html>
+
+<style>
+  @import "test1.css";
+</style>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+      <p>{{message}}</p>
+      <p v-text="message"></p>
+      <p v-once>{{message}}</p>
+      <p>{{message_rev}}</p>
+      <button v-on:click="reverseMessage">メッセージ反転</button>
+
+      <p>{{h1tag}}</p>
+      <p v-html="h1tag"></p>
+
+      <p>{{number + 2}}</p>
+
+      <p>{{ok ? "Yes" : "No"}}</p>
+
+      <p>{{sayHi()}}</p>
+
+      <p><a v-bind:href="urlgoogle"> google </a></p>
+      <p><a v-bind="urlTwitterObj">Twitter</a></p>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          message: "HelloWorld!",
+          message_rev: "you can reverse",
+          ok: true,
+          number: 3,
+          h1tag: "<h1>h1tag</h1>",
+          urlgoogle: "https://google.com",
+          attribute: "href",
+          urlTwitterObj: {
+            href: "https://twitter.com",
+            id: 10,
+          },
+        },
+        methods: {
+          reverseMessage: function() {
+            this.message_rev = this.message_rev
+              .split("")
+              .reverse()
+              .join("");
+          },
+          sayHi: function() {
+            this.message = "Hello Vue";
+            return "HI";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

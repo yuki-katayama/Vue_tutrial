@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>現在{{ number }}回クリックされます</p>
+      <button v-on:[event]="countUp(2)">カウントアップ</button>
+      <p v-on:mousemove="changeMousePosition(2, $event)">
+        クリックで座標を取得します。<span v-on:mousemove.stop
+          >反応しないでください</span
+        >
+      </p>
+      <p>X: {{x}}, Y: {{y}}</p>
+      <a v-on:click.prevent href="https://google.com">Google</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./test0.js"></script>
+  </body>
+</html>
